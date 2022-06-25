@@ -12,14 +12,23 @@ body {
 h1 {
     font-family: 'Potta One', cursive;
     text-transform: uppercase;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
 }
 
 #game-container {
     max-width: 1000px;
-    min-width: 500px;
     box-sizing: border-box;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 20px;
+    border-radius: 35px;
+}
+
+#how-to-play {
+    padding-top: 10px;
 }
