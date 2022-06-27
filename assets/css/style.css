@@ -13,10 +13,19 @@ h1 {
     font-family: 'Potta One', cursive;
     text-transform: uppercase;
     color: #000;
+    margin: 10px 0;
 }
 
 a {
     text-decoration: none;
+}
+
+.padding-top {
+    padding-top: 10px;
+}
+
+.padding-bottom {
+    padding-bottom: 10px;
 }
 
 #game-container {
@@ -30,5 +39,10 @@ a {
 }
 
 #how-to-play {
-    padding-top: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn-main {
+
 }
