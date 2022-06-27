@@ -14,29 +14,29 @@
     <title>Speedy Typer</title>
 </head>
 <body>
-    <heading>
-        <a href="index.html">
-        <h1>Speedy Typer</h1>
+    <header>
+        <a href="index.html" aria-label="Return to Main Menu">
+            <h1>Speedy Typer</h1>
         </a>
-    </heading>
+    </header>
 
     <div id="game-container">
         <h2 class="padding-bottom">Are you prepared to test your typing skills?</h2>
         <div id="how-to-play" class="padding-bottom">
-            <h3 class="padding-bottom">How to play</h3>
+            <h3 class="padding-bottom">How to play:</h3>
             <p class="padding-bottom">
-                <span>Time Attack:</span>
+                <span class="ta-blue">Time Attack:</span>
                 Type as many words as possible before the time runs out! You score 1 point for each correct word typed.
             </p>
-            <p class="padding-bottom">
-                <span>Countdown:</span>
-                Start with a limited amount of time. Each correct word you type adds time to the counter and 1 point to your score. Try to type fast to stop the counter from reaching 0! Challenge yourself with 3 Difficulties!
+            <p>
+                <span class="cd-red">Countdown:</span>
+                Start with a limited amount of time. Each correct word you type adds time to the counter and 1 point to your score. Type fast to stop the counter from reaching 0! Challenge yourself with 3 Difficulties!
             </p>
         </div>
-        <div id="game-mode-choice" class="padding-top-bottom">
-            <h3>Choose a Game mode:</h3>
-            <button class="btn-main">Time Attack</button>
-            <button class="btn-main">Countdown</button>
+        <div id="game-mode-choice">
+            <h3 class="padding-bottom">Choose a Game mode:</h3>
+            <button id="btn-ta" class="btn-main">Time Attack</button>
+            <button id="btn-cd" class="btn-main">Countdown</button>
         </div>
     </div>
 

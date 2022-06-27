@@ -13,7 +13,17 @@ h1 {
     font-family: 'Potta One', cursive;
     text-transform: uppercase;
     color: #000;
-    margin: 10px 0;
+    margin: 20px 10%;
+    letter-spacing: 2px;
+    font-size: 46px;
+}
+
+h2 h3 {
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    text-align: center;
 }
 
 a {
@@ -21,28 +31,67 @@ a {
 }
 
 .padding-top {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .padding-bottom {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.ta-blue {
+    color: cadetblue;
+    font-weight: 700;
+}
+
+.cd-red {
+    color: #bb0721;
+    font-weight: 700;
 }
 
 #game-container {
-    max-width: 1000px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 450px;
+    height: 80vh;
     box-sizing: border-box;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 20px;
+    padding: 40px;
     border-radius: 35px;
 }
 
 #how-to-play {
-    width: 80%;
-    margin: 0 auto;
+    text-align: justify;
 }
 
 .btn-main {
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 30px;
+}
 
+#btn-ta {
+    background-color: cadetblue;
+    color: #fff;
+}
+
+#btn-ta:hover {
+    background-color: #fff;
+    color: cadetblue;
+}
+
+#btn-cd {
+    background-color: #bb0721;
+    color: #fff;
+}
+
+#btn-cd:hover {
+    background-color: #fff;
+    color: #bb0721;
 }
