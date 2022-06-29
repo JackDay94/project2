@@ -14,6 +14,7 @@
     <title>Speedy Typer</title>
 </head>
 <body>
+    <!-- Main Heading -->
     <header>
         <h1>
             <a class="logo" href="index.html" aria-label="Return to Main Menu">
@@ -21,9 +22,10 @@
             </a>
         </h1>
     </header>
-
+    <!-- Game Area -->
     <div id="game-container">
-        <h2 class="padding-bottom">Are you prepared to test your typing skills?</h2>
+        <h2 class="padding-bottom game-heading">Are you prepared to test your typing skills?</h2>
+        <div class="timer" id="timer"></div>
         <div id="how-to-play" class="padding-bottom">
             <h3 class="padding-bottom">How to play:</h3>
             <p class="padding-bottom">
@@ -37,8 +39,8 @@
         </div>
         <div id="game-mode-choice">
             <h3 class="padding-bottom">Choose a Game mode:</h3>
-            <button id="btn-ta" class="btn-main">Time Attack</button>
-            <button id="btn-cd" class="btn-main">Countdown</button>
+            <button type="button" id="btn-ta" class="btn-main" onclick="gameSelect()">Time Attack</button>
+            <button type="button" id="btn-cd" class="btn-main" onclick="gameSelect()">Countdown</button>
         </div>
     </div>
 
