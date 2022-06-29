@@ -24,23 +24,24 @@
     </header>
     <!-- Game Area -->
     <div id="game-container">
-        <h2 class="padding-bottom game-heading">Are you prepared to test your typing skills?</h2>
-        <div class="timer" id="timer"></div>
-        <div id="how-to-play" class="padding-bottom">
-            <h3 class="padding-bottom">How to play:</h3>
-            <p class="padding-bottom">
-                <span class="ta-blue">Time Attack:</span>
-                Type as many words as possible before the time runs out! You score 1 point for each correct word typed.
-            </p>
-            <p>
-                <span class="cd-red">Countdown:</span>
-                Start with a limited amount of time. Each correct word you type adds time to the counter and 1 point to your score. Type fast to stop the counter from reaching 0! Challenge yourself with 3 Difficulties!
-            </p>
-        </div>
-        <div id="game-mode-choice">
-            <h3 class="padding-bottom">Choose a Game mode:</h3>
-            <button type="button" id="btn-ta" class="btn-main" onclick="gameSelect()">Time Attack</button>
-            <button type="button" id="btn-cd" class="btn-main" onclick="gameSelect()">Countdown</button>
+        <h2 id="game-heading" class="padding-bottom">Are you prepared to test your typing skills?</h2>
+        <div id ="main-menu">
+            <div id="how-to-play" class="padding-bottom">
+                <h3 class="padding-bottom">How to play:</h3>
+                <p class="padding-bottom">
+                    <span class="ta-blue">Time Attack:</span>
+                    Type as many words as possible before the time runs out! You score 1 point for each correct word typed.
+                </p>
+                <p>
+                    <span class="cd-red">Countdown:</span>
+                    Start with a limited amount of time. Each correct word you type adds time to the counter and 1 point to your score. Type fast to stop the counter from reaching 0! Challenge yourself with 3 Difficulties!
+                </p>
+            </div>
+            <div id="game-mode-choice">
+                <h3 class="padding-bottom">Choose a Game mode:</h3>
+                <button type="button" id="btn-ta" class="btn-main" onclick="runTimeAttack()">Time Attack</button>
+                <button type="button" id="btn-cd" class="btn-main" onclick="difficultySelect()">Countdown</button>
+            </div>
         </div>
     </div>
 
