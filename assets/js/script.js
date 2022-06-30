@@ -1,43 +1,68 @@
+const btnMain = document.getElementsByClassName("btn");
+const timeAttackButton = document.getElementById("btn-ta");
+const difficultySelectButton = document.getElementById("btn-cd");
+const mainMenuButton = document.getElementById("btn-menu");
+let gameHeading = document.getElementById("game-heading");
+
+/*
+Adds Event Listeners to the buttons when DOM
+content is loaded. Then runs the functions
+operating the buttons when they are clicked
+*/
+document.addEventListener('DOMContentLoaded', function() {
+    for (let btns of btnMain)
+
+        btns.addEventListener("click", function() {
+            if (this.getAttribute('data-type') === 'game-mode-ta') {
+                loadTimeAttack();
+            } else if (this.getAttribute('data-type') === 'game-mode-cd') {
+                loadDifficultySelect();
+            } else if (this.getAttribute('data-type') === 'game-menu') {
+                mainMenu();
+            }
+    })
+})
+
+/**
+ * Loads the Time Attack HTML and hides the content
+ * of the main menu
+ */
+function loadTimeAttack() {
+        document.getElementById("main-menu").hidden = true;
+
+        gameHeading.textContent = "Time Attack";
+        gameHeading.style.color = "cadetblue";
+}
+
+/**
+ * Loads the Difficulty select HTML and hides the
+ * content of the main menu
+ */
+function loadDifficultySelect() {
+        document.getElementById("difficulty-select").style.display = 'block';
+        document.getElementById("main-menu").hidden = true;
+
+        gameHeading = document.getElementById("game-heading");
+        gameHeading.textContent = "Choose a Difficulty:";        
+}
+
+/**
+ * Loads the Main menu HTML and hides the content
+ * of other elements 
+ */
+function mainMenu() {
+        document.getElementById("main-menu").hidden = false;
+        document.getElementById("difficulty-select").style.display = 'none';
+        gameHeading.textContent = "Are you prepared to test your typing skills?";
+}
+
 function runGame() {
 
 }
 
-function runTimeAttack() {
-    const timeAttackButton = document.getElementById("btn-ta")
 
-    timeAttackButton.addEventListener("click", function() {
-        document.getElementById("main-menu").hidden = true;
 
-        let timeAttackHeading = document.getElementById("game-heading");
-        timeAttackHeading.textContent = "Time Attack";
-        timeAttackHeading.style.color = "cadetblue"; }
-    )
-}
-
-function difficultySelect() {
-    const difficultySelectButton = document.getElementById("btn-cd")
-
-    difficultySelectButton.addEventListener("click", function() {
-        document.getElementById("difficulty-select").hidden = false;
-        document.getElementById("main-menu").hidden = true;
-
-        let difficultySelectHeading = document.getElementById("game-heading");
-        difficultySelectHeading.textContent = "Choose a Difficulty:";
-
-        document.getElementById("difficulty-select").innerHTML =  `
-        <div id='difficulty-buttons'>
-            <button type='button' id='btn-easy' class='btn-main btn-difficulty'>Easy</button>
-            <button type='button' id='btn-med' class='btn-main btn-difficulty'>Medium</button>
-            <button type='button' id='btn-hard' class='btn-main btn-difficulty'>Hard</button>
-        </div>
-        <div id='menu-button'>
-            <button type='button' id='btn-menu' class='btn-main' onclick="mainMenu()">Main Menu</button>
-        </div>
-        `
-    })
-};
-
-function runCountdown() {
+function loadCountdown() {
 
 }
 
@@ -65,12 +90,3 @@ function highScore () {
 
 }
 
-function mainMenu() {
-    const mainMenuButton = document.getElementById("btn-menu");
-
-    mainMenuButton.addEventListener("click", function() {
-        document.getElementById("main-menu").hidden = false;
-        document.getElementById("difficulty-select").hidden = true;
-        document.getElementById("game-heading").innerText = "Are you prepared to test your typing skills?";
-    })
-}

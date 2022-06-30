@@ -25,7 +25,7 @@
     <!-- Game Area -->
     <div id="game-container">
         <h2 id="game-heading" class="padding-bottom">Are you prepared to test your typing skills?</h2>
-        <div id="difficulty-select"></div>
+        <!-- Main Menu -->
         <div id ="main-menu">
             <div id="how-to-play" class="padding-bottom">
                 <h3 class="padding-bottom">How to play:</h3>
@@ -40,8 +40,19 @@
             </div>
             <div id="game-mode-choice">
                 <h3 class="padding-bottom">Choose a Game mode:</h3>
-                <button type="button" id="btn-ta" class="btn-main" onclick="runTimeAttack()">Time Attack</button>
-                <button type="button" id="btn-cd" class="btn-main" onclick="difficultySelect()">Countdown</button>
+                <button type="button" id="btn-ta" class="btn" data-type="game-mode-ta">Time Attack</button>
+                <button type="button" id="btn-cd" class="btn" data-type="game-mode-cd">Countdown</button>
+            </div>
+        </div>
+        <!-- Difficulty select -->
+        <div id="difficulty-select">
+            <div id='difficulty-buttons'>
+                <button type='button' id='btn-easy' class='btn btn-difficulty'>Easy</button>
+                <button type='button' id='btn-med' class='btn btn-difficulty'>Medium</button>
+                <button type='button' id='btn-hard' class='btn btn-difficulty'>Hard</button>
+            </div>
+            <div id='menu-button'>
+                <button type='button' id='btn-menu' class='btn' data-type='game-menu'>Main Menu</button>
             </div>
         </div>
     </div>
