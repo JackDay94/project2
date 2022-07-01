@@ -1,7 +1,4 @@
 const btnMain = document.getElementsByClassName("btn");
-const timeAttackButton = document.getElementById("btn-ta");
-const difficultySelectButton = document.getElementById("btn-cd");
-const mainMenuButton = document.getElementById("btn-menu");
 let gameHeading = document.getElementById("game-heading");
 
 /*
