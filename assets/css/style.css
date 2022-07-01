@@ -77,7 +77,7 @@ p {
     display: none;
 }
 
-#time-attack-game {
+#time-attack-game, #countdown-game {
     display: none;
     height: 90%;
 }

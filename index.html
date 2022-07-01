@@ -16,11 +16,7 @@
 <body>
     <!-- Main Heading -->
     <header>
-        <h1>
-            <a class="logo" href="index.html" aria-label="Return to Main Menu">
-                Speedy Typer
-            </a>
-        </h1>
+        <h1>Speedy Typer</h1>
     </header>
     <!-- Game Area -->
     <div id="game-container">
@@ -47,9 +43,9 @@
         <!-- Difficulty select -->
         <div id="difficulty-select">
             <div id='difficulty-buttons'>
-                <button type='button' id='btn-easy' class='btn btn-main btn-difficulty' data-type="difficulty-easy">Easy</button>
-                <button type='button' id='btn-med' class='btn btn-main btn-difficulty' data-type="difficulty-med">Medium</button>
-                <button type='button' id='btn-hard' class='btn btn-main btn-difficulty' data-type="difficulty-hard">Hard</button>
+                <button type='button' id='btn-easy' class='btn btn-main btn-difficulty' data-type="difficulty">Easy</button>
+                <button type='button' id='btn-med' class='btn btn-main btn-difficulty' data-type="difficulty">Medium</button>
+                <button type='button' id='btn-hard' class='btn btn-main btn-difficulty' data-type="difficulty">Hard</button>
             </div>
             <div id='menu-button'>
                 <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
@@ -66,6 +62,24 @@
             </div>
             <div class="user-input padding-bottom">
                 <input type="text" class="answer" placeholder="Start Typing to begin!">
+            </div>
+            <div class="score">
+                <p>Score:</p>
+                <p>High Score:</p>
+            </div>
+            <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
+        </div>
+        <!-- Countdown Game -->
+        <div id="countdown-game">
+            <div class="timer padding-bottom">
+                <h2><i class="fa-solid fa-clock"></i></h2>
+                <h3>0s</h3>
+            </div>
+            <div class="random-word padding-bottom">
+                <h3>Random Word</h3>
+            </div>
+            <div class="user-input padding-bottom">
+                <input type="text" class="answer" placeholder="Start Typing to begin!" autofocus>
             </div>
             <div class="score">
                 <p>Score:</p>
