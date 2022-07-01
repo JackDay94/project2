@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function loadTimeAttack() {
         document.getElementById("main-menu").hidden = true;
+        document.getElementById("time-attack-game").style.display = 'block';
 
         gameHeading.textContent = "Time Attack";
         gameHeading.style.color = "cadetblue";
@@ -50,6 +51,7 @@ function loadDifficultySelect() {
 function mainMenu() {
         document.getElementById("main-menu").hidden = false;
         document.getElementById("difficulty-select").style.display = 'none';
+        document.getElementById("time-attack-game").style.display = 'none';
         gameHeading.textContent = "Are you prepared to test your typing skills?";
 }
 

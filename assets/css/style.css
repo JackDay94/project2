@@ -76,8 +76,12 @@ p {
     display: none;
 }
 
+#time-attack-game {
+    display: none;
+}
+
 .answer {
-    width: 65%;
+    width: 55%;
     height: 20px;
 }
 
