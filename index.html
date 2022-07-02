@@ -18,7 +18,7 @@
     <header>
         <h1>Speedy Typer</h1>
     </header>
-    <!-- Game Area -->
+    <!-- Game container -->
     <div id="game-container">
         <h2 id="game-heading" class="padding-bottom">Are you prepared to test your typing skills?</h2>
         <!-- Main Menu -->
@@ -51,39 +51,22 @@
                 <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
             </div>
         </div>
-        <!-- Time Attack Game -->
-        <div id="time-attack-game">
-            <div class="timer padding-bottom">
+        <!-- Game -->
+        <div id="game">
+            <div id="timer padding-bottom">
                 <h2><i class="fa-solid fa-clock"></i></h2>
                 <h3>0s</h3>
             </div>
-            <div class="random-word padding-bottom">
-                <h3>Random Word</h3>
+            <div class="padding-bottom">
+                <h3 id="random-word"></h3>
             </div>
-            <div class="user-input padding-bottom">
-                <input type="text" class="answer" placeholder="Start Typing to begin!">
+            <div id="user-input" class="padding-bottom">
+                <input type="text" id="answer" placeholder="Start Typing to begin!">
             </div>
+            <p id="difficulty">Difficulty:</p>
             <div class="score">
-                <p>Score:</p>
-                <p>High Score:</p>
-            </div>
-            <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
-        </div>
-        <!-- Countdown Game -->
-        <div id="countdown-game">
-            <div class="timer padding-bottom">
-                <h2><i class="fa-solid fa-clock"></i></h2>
-                <h3>0s</h3>
-            </div>
-            <div class="random-word padding-bottom">
-                <h3>Random Word</h3>
-            </div>
-            <div class="user-input padding-bottom">
-                <input type="text" class="answer" placeholder="Start Typing to begin!" autofocus>
-            </div>
-            <div class="score">
-                <p>Score:</p>
-                <p>High Score:</p>
+                <p id="current-score">Score:</p>
+                <p id="high-score">High Score:</p>
             </div>
             <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
         </div>

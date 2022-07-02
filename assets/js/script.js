@@ -331,19 +331,20 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 /**
- * Loads the Time Attack HTML and hides the content
+ * Loads the Time Attack game and hides the content
  * of the main menu
  */
 function loadTimeAttack() {
     document.getElementById("main-menu").hidden = true;
-    document.getElementById("time-attack-game").style.display = 'block';
+    document.getElementById("game").style.display = 'block';
+    document.getElementById("difficulty").hidden = true;
 
     gameHeading.textContent = "Time Attack";
     gameHeading.style.color = "cadetblue";
 }
 
 /**
- * Loads the Difficulty select HTML and hides the
+ * Loads the Difficulty select menu and hides the
  * content of the main menu
  */
 function loadDifficultySelect() {
@@ -354,14 +355,13 @@ function loadDifficultySelect() {
 }
 
 /**
- * Loads the Main menu HTML and hides the content
- * of other elements 
+ * Loads the Main menu and hides the content of
+ * other elements 
  */
 function mainMenu() {
     document.getElementById("main-menu").hidden = false;
     document.getElementById("difficulty-select").style.display = 'none';
-    document.getElementById("time-attack-game").style.display = 'none';
-    document.getElementById("countdown-game").style.display = 'none';
+    document.getElementById("game").style.display = 'none';
     gameHeading.textContent = "Are you prepared to test your typing skills?";
     gameHeading.style.color = '#fff';
 }
@@ -373,7 +373,8 @@ function runGame() {
 
 function loadCountdown() {
     document.getElementById("difficulty-select").style.display = 'none';
-    document.getElementById("countdown-game").style.display = 'block';
+    document.getElementById("game").style.display = 'block';
+    document.getElementById("difficulty").hidden = false;
 
     gameHeading.textContent = "Countdown"
 }
