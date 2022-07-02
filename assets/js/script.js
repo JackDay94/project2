@@ -1,5 +1,6 @@
 const btnMain = document.getElementsByClassName("btn");
 let gameHeading = document.getElementById("game-heading");
+let randomWord = document.getElementById("random-word");
 
 const words = [
     'alphabet',
@@ -341,6 +342,8 @@ function loadTimeAttack() {
 
     gameHeading.textContent = "Time Attack";
     gameHeading.style.color = "cadetblue";
+
+    generateWord(words);
 }
 
 /**
@@ -370,13 +373,18 @@ function runGame() {
 
 }
 
-
+/**
+ * Loads the Countdown game and hides the
+ * difficulty select menu
+ */
 function loadCountdown() {
     document.getElementById("difficulty-select").style.display = 'none';
     document.getElementById("game").style.display = 'block';
     document.getElementById("difficulty").hidden = false;
 
     gameHeading.textContent = "Countdown"
+
+    generateWord(words);
 }
 
 function timer() {
@@ -387,8 +395,13 @@ function increaseTime() {
 
 }
 
-function generateWord() {
-
+/**
+ * Generates a random word from the words array
+ * and displays it on the game
+ */
+function generateWord(words) {
+    const selectRandomWord = Math.floor(Math.random() * words.length);
+    randomWord.textContent = words[selectRandomWord];
 }
 
 function checkAnswer() {

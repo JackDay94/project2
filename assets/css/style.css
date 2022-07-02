@@ -88,6 +88,10 @@ p {
     font-size: 20px;
 }
 
+#random-word {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* Buttons */
 
