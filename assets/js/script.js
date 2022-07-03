@@ -2,6 +2,11 @@ const btnMain = document.getElementsByClassName("btn");
 let gameHeading = document.getElementById("game-heading");
 let randomWord = document.getElementById("random-word");
 
+let remainingTime = document.getElementById("remaining-time");
+const gameTimeEasy = 8;
+const gameTimeMedium = 5;
+const gameTimeHard = 3;
+const TimeAttack = 60;
 
 /*
 Adds Event Listeners to the buttons when DOM
@@ -29,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
     })
+    
+    initializeTimer();
 })
 
 /**
@@ -90,6 +97,22 @@ function loadCountdown() {
     gameHeading.textContent = "Countdown"
     // Generates a random word for the game
     generateWord(words);
+}
+
+function initializeTimer() {
+    for (let btns of btnMain) {
+        btns.addEventListener("click", function() {
+            if (this.getAttribute('id') === 'btn-easy') {
+                remainingTime.innerHTML = `Time Remaining: ${gameTimeEasy}s`;
+            } else if (this.getAttribute('id') === 'btn-med') {
+                remainingTime.innerHTML = `Time Remaining: ${gameTimeMedium}s`;
+            } else if (this.getAttribute('id') === 'btn-hard') {
+                remainingTime.innerHTML = `Time Remaining: ${gameTimeHard}s`;
+            } else if (this.getAttribute('id') === 'btn-ta') {
+                remainingTime.innerHTML = `Time Remaining: ${TimeAttack}s`;
+            }
+        })
+    }
 }
 
 function timer() {
