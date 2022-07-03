@@ -336,13 +336,14 @@ document.addEventListener('DOMContentLoaded', function() {
  * of the main menu
  */
 function loadTimeAttack() {
+    // Hides the main menu and difficulty and displays the game
     document.getElementById("main-menu").hidden = true;
     document.getElementById("game").style.display = 'block';
     document.getElementById("difficulty").hidden = true;
-
+    // Changes the heading to Time Attack
     gameHeading.textContent = "Time Attack";
     gameHeading.style.color = "cadetblue";
-
+    // Generates a random word for the game
     generateWord(words);
 }
 
@@ -351,9 +352,10 @@ function loadTimeAttack() {
  * content of the main menu
  */
 function loadDifficultySelect() {
+    // Hides the main menu and displays the difficulty select
     document.getElementById("difficulty-select").style.display = 'block';
     document.getElementById("main-menu").hidden = true;
-
+    // Changes the heading to Choose a difficulty
     gameHeading.textContent = "Choose a Difficulty:";        
 }
 
@@ -362,9 +364,11 @@ function loadDifficultySelect() {
  * other elements 
  */
 function mainMenu() {
+    // Hides the other elements and displays the main menu elements
     document.getElementById("main-menu").hidden = false;
     document.getElementById("difficulty-select").style.display = 'none';
     document.getElementById("game").style.display = 'none';
+    // Changes the heading content back to the main menu heading
     gameHeading.textContent = "Are you prepared to test your typing skills?";
     gameHeading.style.color = '#fff';
 }
@@ -378,12 +382,13 @@ function runGame() {
  * difficulty select menu
  */
 function loadCountdown() {
+    // Hides the difficulty select and displays the game and difficulty
     document.getElementById("difficulty-select").style.display = 'none';
     document.getElementById("game").style.display = 'block';
     document.getElementById("difficulty").hidden = false;
-
+    // Changes the heading to countdown
     gameHeading.textContent = "Countdown"
-
+    // Generates a random word for the game
     generateWord(words);
 }
 
@@ -400,7 +405,9 @@ function increaseTime() {
  * and displays it on the game
  */
 function generateWord(words) {
+    // Selects a random index from the words array
     const selectRandomWord = Math.floor(Math.random() * words.length);
+    // Displays the text content of the random index
     randomWord.textContent = words[selectRandomWord];
 }
 
