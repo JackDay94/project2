@@ -83,14 +83,20 @@ p {
 }
 
 #answer {
-    width: 55%;
+    width: min(90%, 400px);
     height: 30px;
     font-size: 20px;
+    text-align: center;
 }
 
 #random-word {
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: clamp(24px, 4vw, 40px);
+}
+
+#score, #difficulty {
+    font-weight: 700;
 }
 
 /* Buttons */

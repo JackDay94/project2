@@ -327,6 +327,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainMenu();
             } else if (this.getAttribute('data-type') === 'difficulty') {
                 loadCountdown();
+                if (this.getAttribute('id') === 'btn-easy') {
+                    gameHeading.style.color = 'lightgreen';
+                } else if (this.getAttribute('id') === 'btn-med') {
+                    gameHeading.style.color = 'orange';
+                } else if (this.getAttribute('id') === 'btn-hard') {
+                    gameHeading.style.color = '#bb0721';
+                }
             }
     })
 })
