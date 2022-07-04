@@ -80,6 +80,7 @@ p {
 #game {
     display: none;
     height: 90%;
+    font-weight: 700;
 }
 
 #answer {
@@ -90,13 +91,14 @@ p {
 }
 
 #random-word {
-    text-transform: uppercase;
+    text-transform: lowercase;
     letter-spacing: 1px;
     font-size: clamp(24px, 4vw, 40px);
 }
 
-#score, #difficulty {
-    font-weight: 700;
+
+#timer-icon {
+    font-size: clamp(24px, 4vw, 34px);
 }
 
 /* Buttons */

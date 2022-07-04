@@ -54,19 +54,21 @@
         <!-- Game -->
         <div id="game">
             <div id="timer" class="padding-bottom">
-                <h2><i class="fa-solid fa-clock"></i></h2>
-                <h3 id="remaining-time">0s</h3>
+                <h2 id="timer-icon"><i class="fa-solid fa-clock"></i></h2>
+                <h3>Time Remaining: <span id="remaining-time"></span>s</h3>
             </div>
             <div class="padding-bottom">
                 <h3 id="random-word"></h3>
             </div>
             <div id="user-input" class="padding-bottom">
-                <input type="text" id="answer" placeholder="Start Typing to begin!">
+                <input type="text" id="answer" placeholder="Start Typing to begin!" autofocus autocomplete="off" >
             </div>
-            <p id="difficulty">Difficulty:</p>
+            <div id="difficulty">
+                <p>Difficulty: <span id="current-difficulty"></span></p>
+            </div>
             <div id="score">
-                <p id="current-score">Score:</p>
-                <p id="high-score">High Score:</p>
+                <p>Score: <span id="current-score"></span></p>
+                <p>High Score: <span id="high-score"></span></p>
             </div>
             <button type='button' class='btn btn-menu' data-type='game-menu'><i class="fa-solid fa-house menu"></i></button>
         </div>

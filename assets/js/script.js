@@ -6,7 +6,7 @@ let remainingTime = document.getElementById("remaining-time");
 const gameTimeEasy = 8;
 const gameTimeMedium = 5;
 const gameTimeHard = 3;
-const TimeAttack = 60;
+const timeAttack = 60;
 
 /*
 Adds Event Listeners to the buttons when DOM
@@ -103,13 +103,13 @@ function initializeTimer() {
     for (let btns of btnMain) {
         btns.addEventListener("click", function() {
             if (this.getAttribute('id') === 'btn-easy') {
-                remainingTime.innerHTML = `Time Remaining: ${gameTimeEasy}s`;
+                remainingTime.innerHTML = gameTimeEasy;
             } else if (this.getAttribute('id') === 'btn-med') {
-                remainingTime.innerHTML = `Time Remaining: ${gameTimeMedium}s`;
+                remainingTime.innerHTML = gameTimeMedium;
             } else if (this.getAttribute('id') === 'btn-hard') {
-                remainingTime.innerHTML = `Time Remaining: ${gameTimeHard}s`;
+                remainingTime.innerHTML = gameTimeHard;
             } else if (this.getAttribute('id') === 'btn-ta') {
-                remainingTime.innerHTML = `Time Remaining: ${TimeAttack}s`;
+                remainingTime.innerHTML = timeAttack;
             }
         })
     }
