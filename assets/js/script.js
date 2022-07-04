@@ -1,6 +1,7 @@
 const btnMain = document.getElementsByClassName("btn");
 let gameHeading = document.getElementById("game-heading");
 let randomWord = document.getElementById("random-word");
+let difficulty = document.getElementById("current-difficulty");
 
 let remainingTime = document.getElementById("remaining-time");
 const gameTimeEasy = 8;
@@ -26,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (this.getAttribute('data-type') === 'difficulty') {
                 loadCountdown();
                 if (this.getAttribute('id') === 'btn-easy') {
-                    gameHeading.style.color = 'lightgreen';
+                    loadCountdownEasy();
                 } else if (this.getAttribute('id') === 'btn-med') {
-                    gameHeading.style.color = 'orange';
+                    loadCountdownMedium();
                 } else if (this.getAttribute('id') === 'btn-hard') {
-                    gameHeading.style.color = '#bb0721';
+                    loadCountdownHard();
                 }
             }
     })
@@ -99,21 +100,6 @@ function loadCountdown() {
     generateWord(words);
 }
 
-function initializeTimer() {
-    for (let btns of btnMain) {
-        btns.addEventListener("click", function() {
-            if (this.getAttribute('id') === 'btn-easy') {
-                remainingTime.innerHTML = gameTimeEasy;
-            } else if (this.getAttribute('id') === 'btn-med') {
-                remainingTime.innerHTML = gameTimeMedium;
-            } else if (this.getAttribute('id') === 'btn-hard') {
-                remainingTime.innerHTML = gameTimeHard;
-            } else if (this.getAttribute('id') === 'btn-ta') {
-                remainingTime.innerHTML = timeAttack;
-            }
-        })
-    }
-}
 
 function timer() {
 
@@ -138,11 +124,34 @@ function checkAnswer() {
 
 }
 
-function increaseScore () {
+function increaseScore() {
 
 }
 
-function highScore () {
+function highScoreCheck() {
 
 }
 
+function loadCountdownEasy() {
+    remainingTime.innerHTML = gameTimeEasy;
+    gameHeading.style.color = 'lightgreen';
+    difficulty.style.color = 'lightgreen';
+    difficulty.innerHTML = 'Easy';
+
+}
+
+function loadCountdownMedium() {
+    remainingTime.innerHTML = gameTimeMedium;
+    gameHeading.style.color = 'orange';
+    difficulty.style.color = 'orange';
+    difficulty.innerHTML = 'Medium';
+
+}
+
+function loadCountdownHard() {
+    remainingTime.innerHTML = gameTimeHard;
+    gameHeading.style.color = '#bb0721';
+    difficulty.style.color = '#bb0721';
+    difficulty.innerHTML = 'Hard';
+
+}
