@@ -9,6 +9,10 @@ const gameTimeMedium = 5;
 const gameTimeHard = 3;
 const timeAttack = 60;
 
+const userAnswer = document.getElementById("answer");
+let userScore = document.getElementById("current-score");
+let highScore = document.getElementById("high-score");
+
 /*
 Adds Event Listeners to the buttons when DOM
 content is loaded. Then runs the functions
@@ -36,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     })
     
-    initializeTimer();
 })
 
 /**
@@ -53,6 +56,14 @@ function loadTimeAttack() {
     gameHeading.style.color = "cadetblue";
     // Generates a random word for the game
     generateWord(words);
+    // Sets the starting time for Time Attack
+    remainingTime.innerHTML = timeAttack;
+    // Sets the score and high score to 0
+    userScore.innerHTML = 0;
+    highScore.innerHTML = 0;
+    // Adds event listener for the user input 
+    userAnswer.addEventListener("input", nextWord);  
+
 }
 
 /**
@@ -79,10 +90,24 @@ function mainMenu() {
     // Changes the heading content back to the main menu heading
     gameHeading.textContent = "Are you prepared to test your typing skills?";
     gameHeading.style.color = '#fff';
+    // Clears the input box
+    userAnswer.value = '';
+    // Clears all game values
+    remainingTime.innerHTML = null;
+    randomWord.innerHTML = null;
+    userScore.innerHTML = null;
+    highScore.innerHTML = null;
 }
 
-function runGame() {
-
+/**
+ * Clears the user input box and generates a new
+ * random word
+ */
+function nextWord() {
+    if (checkAnswer()) {
+        generateWord(words);
+        userAnswer.value = '';
+    }
 }
 
 /**
@@ -98,6 +123,11 @@ function loadCountdown() {
     gameHeading.textContent = "Countdown"
     // Generates a random word for the game
     generateWord(words);
+    // Sets the score and high score to 0
+    userScore.innerHTML = 0;
+    highScore.innerHTML = 0;
+    // Adds event listener for the user input
+    userAnswer.addEventListener("input", nextWord);
 }
 
 
@@ -120,8 +150,16 @@ function generateWord(words) {
     randomWord.textContent = words[selectRandomWord];
 }
 
+/**
+ * Checks if the user input matches the random word
+ * and returns a value if true
+ */
 function checkAnswer() {
-
+    if (userAnswer.value === randomWord.innerHTML) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function increaseScore() {
@@ -132,26 +170,38 @@ function highScoreCheck() {
 
 }
 
+/**
+ * Loads the countdown game in easy difficulty
+ */
 function loadCountdownEasy() {
+    // Sets the starting time for easy
     remainingTime.innerHTML = gameTimeEasy;
+    // Changes styles and html for easy
     gameHeading.style.color = 'lightgreen';
     difficulty.style.color = 'lightgreen';
     difficulty.innerHTML = 'Easy';
-
 }
 
+/**
+ * Loads the countdown game in medium difficulty
+ */
 function loadCountdownMedium() {
+    // Sets the starting time for medium
     remainingTime.innerHTML = gameTimeMedium;
+    // Changes styles and html for medium
     gameHeading.style.color = 'orange';
     difficulty.style.color = 'orange';
     difficulty.innerHTML = 'Medium';
-
 }
 
+/**
+ * Loads the countdown game in hard difficulty
+ */
 function loadCountdownHard() {
+    // Sets the starting time for hard
     remainingTime.innerHTML = gameTimeHard;
+    // Changes styles and html for hard
     gameHeading.style.color = '#bb0721';
     difficulty.style.color = '#bb0721';
     difficulty.innerHTML = 'Hard';
-
 }
