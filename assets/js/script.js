@@ -1,13 +1,14 @@
 const btnMain = document.getElementsByClassName("btn");
+const btnStart = document.getElementById("btn-start");
 let gameHeading = document.getElementById("game-heading");
 let randomWord = document.getElementById("random-word");
 let difficulty = document.getElementById("current-difficulty");
 
 let remainingTime = document.getElementById("remaining-time");
-const gameTimeEasy = 8;
-const gameTimeMedium = 5;
-const gameTimeHard = 3;
-const timeAttack = 60;
+const countdownTimeEasy = 8;
+const countdownTimeMedium = 5;
+const countdownTimeHard = 3;
+const timeAttackTime = 60;
 
 const userAnswer = document.getElementById("answer");
 let userScore = document.getElementById("current-score");
@@ -57,12 +58,16 @@ function loadTimeAttack() {
     gameHeading.textContent = "Time Attack";
     gameHeading.style.color = "cadetblue";
     // Generates a random word for the game
-    generateWord(words);
-    // Sets the starting time for Time Attack
-    remainingTime.innerHTML = timeAttack;
+    generateWord();
+    // Sets the starting time to 0 on load
+    remainingTime.innerHTML = 0
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
     highScore.innerHTML = 0;
+    // Focus on the text box when game loads
+    userAnswer.focus();
+    // Disables the answer box to prevent input before game starts
+    userAnswer.disabled = true;
     // Adds event listener for the user input 
     userAnswer.addEventListener("input", nextWord);  
 
@@ -107,7 +112,7 @@ function mainMenu() {
  */
 function nextWord() {
     if (checkAnswer()) {
-        generateWord(words);
+        generateWord();
         userAnswer.value = '';
     }
 }
@@ -124,10 +129,14 @@ function loadCountdown() {
     // Changes the heading to countdown
     gameHeading.textContent = "Countdown";
     // Generates a random word for the game
-    generateWord(words);
+    generateWord();
+    // Sets the starting time to 0 on load
+    remainingTime.innerHTML = 0;
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
     highScore.innerHTML = 0;
+    // Focus on the text box when game loads
+    userAnswer.focus();
     // Adds event listener for the user input
     userAnswer.addEventListener("input", nextWord);
 }
@@ -145,7 +154,7 @@ function increaseTime() {
  * Generates a random word from the words array
  * and displays it on the game
  */
-function generateWord(words) {
+function generateWord() {
     // Selects a random index from the words array
     const selectRandomWord = Math.floor(Math.random() * words.length);
     // Displays the text content of the random index
@@ -176,8 +185,6 @@ function highScoreCheck() {
  * Loads the countdown game in easy difficulty
  */
 function loadCountdownEasy() {
-    // Sets the starting time for easy
-    remainingTime.innerHTML = gameTimeEasy;
     // Changes styles and html for easy
     gameHeading.style.color = 'lightgreen';
     difficulty.style.color = 'lightgreen';
@@ -188,8 +195,6 @@ function loadCountdownEasy() {
  * Loads the countdown game in medium difficulty
  */
 function loadCountdownMedium() {
-    // Sets the starting time for medium
-    remainingTime.innerHTML = gameTimeMedium;
     // Changes styles and html for medium
     gameHeading.style.color = 'orange';
     difficulty.style.color = 'orange';
@@ -200,8 +205,6 @@ function loadCountdownMedium() {
  * Loads the countdown game in hard difficulty
  */
 function loadCountdownHard() {
-    // Sets the starting time for hard
-    remainingTime.innerHTML = gameTimeHard;
     // Changes styles and html for hard
     gameHeading.style.color = '#bb0721';
     difficulty.style.color = '#bb0721';
