@@ -169,6 +169,31 @@ p {
     border: 4px solid #bb0721;
 }
 
+#btn-start {
+    height: 30px;
+    width: 30%;
+    font-size: 18px;
+    border-radius: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 700;
+    background-color: rgb(33, 170, 79);
+}
+
+#btn-start:hover{
+    color: rgb(33, 170, 79);
+    background-color: #fff;
+    border: 3px solid rgb(33, 170, 79);
+}
+
+#btn-start:disabled {
+    background-color: black;
+}
+
+.nohover {
+    pointer-events: none;
+}
+
 .btn-menu {
     font-size: 30px;
     color: #fff;
@@ -181,8 +206,7 @@ p {
 }
 
 .menu {
-    position: relative;
-    top: 30px;
+    padding-top: 10px;
 }
 
 .btn-difficulty {

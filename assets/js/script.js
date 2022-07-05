@@ -37,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else if (this.getAttribute('id') === 'btn-hard') {
                     loadCountdownHard();
                 }
+            } else if (this.getAttribute('data-type') === 'start') {
+                
             }
-    })
+    });
     
-})
+});
 
 /**
  * Loads the Time Attack game and hides the content
@@ -120,7 +122,7 @@ function loadCountdown() {
     document.getElementById("game").style.display = 'block';
     document.getElementById("difficulty").hidden = false;
     // Changes the heading to countdown
-    gameHeading.textContent = "Countdown"
+    gameHeading.textContent = "Countdown";
     // Generates a random word for the game
     generateWord(words);
     // Sets the score and high score to 0
