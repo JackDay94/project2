@@ -9,6 +9,7 @@ const countdownTimeEasy = 8;
 const countdownTimeMedium = 5;
 const countdownTimeHard = 3;
 const timeAttackTime = 60;
+let gameStartTime;
 
 const userAnswer = document.getElementById("answer");
 let userScore = document.getElementById("current-score");
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     loadCountdownHard();
                 }
             } else if (this.getAttribute('data-type') === 'start') {
-                
+                startGame();
             }
     });
     
@@ -59,7 +60,7 @@ function loadTimeAttack() {
     gameHeading.style.color = "cadetblue";
     // Generates a random word for the game
     generateWord();
-    // Sets the starting time to 0 on load
+    // Sets the initial time to 0 on load
     remainingTime.innerHTML = 0
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
@@ -69,7 +70,9 @@ function loadTimeAttack() {
     // Disables the answer box to prevent input before game starts
     userAnswer.disabled = true;
     // Adds event listener for the user input 
-    userAnswer.addEventListener("input", nextWord);  
+    userAnswer.addEventListener("input", nextWord);
+    // Stores the value of the start time 
+    gameStartTime = timeAttackTime;  
 
 }
 
@@ -104,6 +107,9 @@ function mainMenu() {
     randomWord.innerHTML = null;
     userScore.innerHTML = null;
     highScore.innerHTML = null;
+    difficulty.innerHTML = null;
+    btnStart.disabled = false;
+    btnStart.classList.remove('nohover');
 }
 
 /**
@@ -141,6 +147,20 @@ function loadCountdown() {
     userAnswer.addEventListener("input", nextWord);
 }
 
+function startGame() {
+    if (gameStartTime === timeAttackTime) {
+        remainingTime.innerHTML = 60;
+    } else if (gameStartTime === countdownTimeEasy) {
+        remainingTime.innerHTML = 8;
+    } else if (gameStartTime === countdownTimeMedium) {
+        remainingTime.innerHTML = 5;
+    } else if (gameStartTime === countdownTimeHard) {
+        remainingTime.innerHTML = 3;
+    }
+    userAnswer.disabled = false;
+    btnStart.disabled = true;
+    btnStart.classList.add('nohover')
+}
 
 function timer() {
 
@@ -189,6 +209,8 @@ function loadCountdownEasy() {
     gameHeading.style.color = 'lightgreen';
     difficulty.style.color = 'lightgreen';
     difficulty.innerHTML = 'Easy';
+    // Stores the value of the start time 
+    gameStartTime = countdownTimeEasy;
 }
 
 /**
@@ -199,6 +221,8 @@ function loadCountdownMedium() {
     gameHeading.style.color = 'orange';
     difficulty.style.color = 'orange';
     difficulty.innerHTML = 'Medium';
+    // Stores the value of the start time 
+    gameStartTime = countdownTimeMedium;
 }
 
 /**
@@ -209,4 +233,6 @@ function loadCountdownHard() {
     gameHeading.style.color = '#bb0721';
     difficulty.style.color = '#bb0721';
     difficulty.innerHTML = 'Hard';
+    // Stores the value of the start time
+    gameStartTime = countdownTimeHard;
 }
