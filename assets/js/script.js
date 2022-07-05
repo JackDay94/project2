@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 startGame();
             }
     });
-    
 });
 
 /**
@@ -61,7 +60,7 @@ function loadTimeAttack() {
     // Generates a random word for the game
     generateWord();
     // Sets the initial time to 0 on load
-    remainingTime.innerHTML = 0
+    remainingTime.innerHTML = 0;
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
     highScore.innerHTML = 0;
@@ -120,7 +119,8 @@ function nextWord() {
     if (checkAnswer()) {
         generateWord();
         userAnswer.value = '';
-    }
+        increaseScore();
+    } 
 }
 
 /**
@@ -143,6 +143,8 @@ function loadCountdown() {
     highScore.innerHTML = 0;
     // Focus on the text box when game loads
     userAnswer.focus();
+    // Disables the answer box to prevent input before game starts
+    userAnswer.disabled = true;
     // Adds event listener for the user input
     userAnswer.addEventListener("input", nextWord);
 }
@@ -194,7 +196,10 @@ function checkAnswer() {
 }
 
 function increaseScore() {
-
+    userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
+    if (userScore.innerHTML > highScore.innerHTML) {
+        highScore.innerHTML = userScore.innerHTML;
+    }
 }
 
 function highScoreCheck() {
