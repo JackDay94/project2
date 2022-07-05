@@ -15,6 +15,8 @@ const userAnswer = document.getElementById("answer");
 let userScore = document.getElementById("current-score");
 let highScore = document.getElementById("high-score");
 
+const timer = setInterval(updateTimer, 1000);
+
 /*
 Adds Event Listeners to the buttons when DOM
 content is loaded. Then runs the functions
@@ -149,6 +151,10 @@ function loadCountdown() {
     userAnswer.addEventListener("input", nextWord);
 }
 
+/**
+ * Starts the timer and enables the input box.
+ * Disables the start button.
+ */
 function startGame() {
     if (gameStartTime === timeAttackTime) {
         remainingTime.innerHTML = 60;
@@ -164,8 +170,10 @@ function startGame() {
     btnStart.classList.add('nohover')
 }
 
-function timer() {
-
+function updateTimer() {
+    if (remainingTime.innerHTML > 0) {
+        remainingTime.innerHTML--;
+    } 
 }
 
 function increaseTime() {
