@@ -5,17 +5,20 @@ let randomWord = document.getElementById("random-word");
 let difficulty = document.getElementById("current-difficulty");
 
 let remainingTime = document.getElementById("remaining-time");
-const countdownTimeEasy = 8;
-const countdownTimeMedium = 5;
-const countdownTimeHard = 3;
-const timeAttackTime = 60;
+const gameTimes = {
+    easy: 8,
+    medium: 5,
+    hard: 3,
+    timeAttack: 60
+};
+
 let gameStartTime;
 
 const userAnswer = document.getElementById("answer");
 let userScore = document.getElementById("current-score");
 let highScore = document.getElementById("high-score");
 
-const timer = setInterval(updateTimer, 1000);
+let timer;
 
 /*
 Adds Event Listeners to the buttons when DOM
@@ -73,7 +76,7 @@ function loadTimeAttack() {
     // Adds event listener for the user input 
     userAnswer.addEventListener("input", nextWord);
     // Stores the value of the start time 
-    gameStartTime = timeAttackTime;  
+    gameStartTime = gameTimes.timeAttack;  
 
 }
 
@@ -109,13 +112,12 @@ function mainMenu() {
     userScore.innerHTML = null;
     highScore.innerHTML = null;
     difficulty.innerHTML = null;
-    btnStart.disabled = false;
-    btnStart.classList.remove('nohover');
+    clearInterval(timer);
 }
 
 /**
- * Clears the user input box and generates a new
- * random word
+ * Clears the user input box, generates a new
+ * random word and increases the score.
  */
 function nextWord() {
     if (checkAnswer()) {
@@ -127,7 +129,7 @@ function nextWord() {
 
 /**
  * Loads the Countdown game and hides the
- * difficulty select menu
+ * difficulty select menu.
  */
 function loadCountdown() {
     // Hides the difficulty select and displays the game and difficulty
@@ -147,33 +149,59 @@ function loadCountdown() {
     userAnswer.focus();
     // Disables the answer box to prevent input before game starts
     userAnswer.disabled = true;
+    // Enables the start button on load
+    btnStart.disabled = false;
     // Adds event listener for the user input
     userAnswer.addEventListener("input", nextWord);
 }
 
 /**
- * Starts the timer and enables the input box.
- * Disables the start button.
+ * Starts the game by setting the timer and beginning
+ * the countdown. Generates a new word, enables
+ * the input box and resets the score to 0.
  */
 function startGame() {
-    if (gameStartTime === timeAttackTime) {
-        remainingTime.innerHTML = 60;
-    } else if (gameStartTime === countdownTimeEasy) {
-        remainingTime.innerHTML = 8;
-    } else if (gameStartTime === countdownTimeMedium) {
-        remainingTime.innerHTML = 5;
-    } else if (gameStartTime === countdownTimeHard) {
-        remainingTime.innerHTML = 3;
+    // Sets the timer interval to every second
+    timer = setInterval(updateTimer, 1000);
+    // Sets the starting value of the timer
+    if (gameStartTime === gameTimes.timeAttack) {
+        remainingTime.innerHTML = gameTimes.timeAttack;
+    } else if (gameStartTime === gameTimes.easy) {
+        remainingTime.innerHTML = gameTimes.easy;
+    } else if (gameStartTime === gameTimes.medium) {
+        remainingTime.innerHTML = gameTimes.medium;
+    } else if (gameStartTime === gameTimes.hard) {
+        remainingTime.innerHTML = gameTimes.hard;
     }
+    // Enables the input box and disables the start button
     userAnswer.disabled = false;
+    userAnswer.value = '';
+    userAnswer.focus();
     btnStart.disabled = true;
-    btnStart.classList.add('nohover')
+    btnStart.classList.add('nohover');
+    // Sets the score to 0
+    userScore.innerHTML = 0;
+    // Generates a new random word
+    generateWord();
 }
 
+/**
+ * Decrements the time and checks if it has reached 0.
+ * Ends the game when the timer is 0 and clears the timer
+ * interval.
+ */
 function updateTimer() {
+    // Decrements the time if it is greater than 0
     if (remainingTime.innerHTML > 0) {
         remainingTime.innerHTML--;
-    } 
+    /* If the time is 0, enables the start button and
+    disables the input. Clears the timer interval. */    
+    } else if (parseInt(remainingTime.innerHTML) === 0) {
+        btnStart.disabled = false;
+        btnStart.classList.remove('nohover');
+        userAnswer.disabled = true;
+        clearInterval(timer);
+    }
 }
 
 function increaseTime() {
@@ -223,7 +251,7 @@ function loadCountdownEasy() {
     difficulty.style.color = 'lightgreen';
     difficulty.innerHTML = 'Easy';
     // Stores the value of the start time 
-    gameStartTime = countdownTimeEasy;
+    gameStartTime = gameTimes.easy;
 }
 
 /**
@@ -235,7 +263,7 @@ function loadCountdownMedium() {
     difficulty.style.color = 'orange';
     difficulty.innerHTML = 'Medium';
     // Stores the value of the start time 
-    gameStartTime = countdownTimeMedium;
+    gameStartTime = gameTimes.medium;
 }
 
 /**
@@ -247,5 +275,5 @@ function loadCountdownHard() {
     difficulty.style.color = '#bb0721';
     difficulty.innerHTML = 'Hard';
     // Stores the value of the start time
-    gameStartTime = countdownTimeHard;
+    gameStartTime = gameTimes.hard;
 }
