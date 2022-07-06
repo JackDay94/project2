@@ -248,8 +248,10 @@ function checkAnswer() {
  * if the high score has been beaten.
  */
 function increaseScore() {
+    // Increases the user score by 1
     userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
-    if (userScore.innerHTML > highScore.innerHTML) {
+    // Checks if user score is greater than high score and matches them
+    if (parseInt(userScore.innerHTML) > parseInt(highScore.innerHTML)) {
         highScore.innerHTML = userScore.innerHTML;
     }
 }
