@@ -19,6 +19,7 @@ let userScore = document.getElementById("current-score");
 let highScore = document.getElementById("high-score");
 
 let timer;
+let gameMode;
 
 /*
 Adds Event Listeners to the buttons when DOM
@@ -78,8 +79,9 @@ function loadTimeAttack() {
     // Adds event listener for the user input 
     userAnswer.addEventListener("input", nextWord);
     // Stores the value of the start time 
-    gameStartTime = gameTimes.timeAttack;  
-
+    gameStartTime = gameTimes.timeAttack;
+    // Sets the value of the game mode
+    gameMode = 'Time Attack';  
 }
 
 /**
@@ -114,6 +116,7 @@ function mainMenu() {
     userScore.innerHTML = null;
     highScore.innerHTML = null;
     difficulty.innerHTML = null;
+    gameMode = null;
 }
 
 /**
@@ -125,6 +128,7 @@ function nextWord() {
         generateWord();
         userAnswer.value = '';
         increaseScore();
+        increaseTime();
     } 
 }
 
@@ -154,6 +158,8 @@ function loadCountdown() {
     btnStart.disabled = false;
     // Adds event listener for the user input
     userAnswer.addEventListener("input", nextWord);
+    // Sets the value of the game mode
+    gameMode = 'Countdown';
 }
 
 /**
@@ -205,8 +211,13 @@ function updateTimer() {
     }
 }
 
-function increaseTime() {
-
+/**
+ * Increases the time by 2 seconds for countdown game mode.
+ */
+ function increaseTime() {
+    if (gameMode === 'Countdown') {
+        remainingTime.innerHTML = parseInt(remainingTime.innerHTML) + 2;
+    } 
 }
 
 /**
@@ -233,17 +244,14 @@ function checkAnswer() {
 }
 
 /**
- * Increases the score 
+ * Increases the score by 1 and adds 1 to the high score 
+ * if the high score has been beaten.
  */
 function increaseScore() {
     userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
     if (userScore.innerHTML > highScore.innerHTML) {
         highScore.innerHTML = userScore.innerHTML;
     }
-}
-
-function highScoreCheck() {
-
 }
 
 /**
