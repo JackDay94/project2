@@ -73,6 +73,8 @@ function loadTimeAttack() {
     userAnswer.focus();
     // Disables the answer box to prevent input before game starts
     userAnswer.disabled = true;
+    // Enables the start button on load
+    btnStart.disabled = false;
     // Adds event listener for the user input 
     userAnswer.addEventListener("input", nextWord);
     // Stores the value of the start time 
@@ -112,7 +114,6 @@ function mainMenu() {
     userScore.innerHTML = null;
     highScore.innerHTML = null;
     difficulty.innerHTML = null;
-    clearInterval(timer);
 }
 
 /**
@@ -231,6 +232,9 @@ function checkAnswer() {
     }
 }
 
+/**
+ * Increases the score 
+ */
 function increaseScore() {
     userScore.innerHTML = parseInt(userScore.innerHTML) + 1;
     if (userScore.innerHTML > highScore.innerHTML) {
