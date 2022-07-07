@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         btns.addEventListener("click", function(event) {
             event.preventDefault();
-            checkScore();
             if (this.getAttribute('data-type') === 'game-mode-ta') {
                 loadTimeAttack();
             } else if (this.getAttribute('data-type') === 'game-mode-cd') {
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 startGame();
             }
     });
+    checkScore();
 });
 
 /**
@@ -69,8 +69,9 @@ function loadTimeAttack() {
     generateWord();
     // Sets the initial time to 0 on load
     remainingTime.innerHTML = 0;
-    // Sets the score and high score to 0
+    // Sets the score to 0
     userScore.innerHTML = 0;
+    // Sets the high score from the local storage
     highScore.innerHTML = parseInt(localStorage.getItem("timeAttackHighScore"));
     // Focus on the text box when game loads
     userAnswer.focus();
@@ -172,7 +173,7 @@ function loadCountdownEasy() {
     difficulty.innerHTML = 'Easy';
     // Stores the value of the start time 
     gameStartTime = gameTimes.easy;
-    // Displays high score
+    // Displays high score from local storage
     highScore.innerHTML = parseInt(localStorage.getItem("easyHighScore"));
 }
 
@@ -186,7 +187,7 @@ function loadCountdownMedium() {
     difficulty.innerHTML = 'Medium';
     // Stores the value of the start time 
     gameStartTime = gameTimes.medium;
-    // Displays high score
+    // Displays high score from local storage
     highScore.innerHTML = parseInt(localStorage.getItem("mediumHighScore"));
 }
 
@@ -200,7 +201,7 @@ function loadCountdownHard() {
     difficulty.innerHTML = 'Hard';
     // Stores the value of the start time
     gameStartTime = gameTimes.hard;
-    // Displays high score
+    // Displays high score from local storage
     highScore.innerHTML = parseInt(localStorage.getItem("hardHighScore"));
 }
 
@@ -295,6 +296,7 @@ function increaseScore() {
     // Checks if user score is greater than high score and matches them
     if (parseInt(userScore.innerHTML) > parseInt(highScore.innerHTML)) {
         highScore.innerHTML = userScore.innerHTML;
+        // Sets the local storage high score depending on game mode
         if(gameStartTime === gameTimes.timeAttack) {
             localStorage.setItem("timeAttackHighScore", highScore.innerHTML);
         } else if (gameStartTime === gameTimes.easy) {
@@ -308,7 +310,8 @@ function increaseScore() {
 }
 
 /**
- * Checks the high score local storage
+ * Checks the high score local storage and stops
+ * the values returning
  */
 function checkScore() {
     if(localStorage.getItem("timeAttackHighScore") === null) {
