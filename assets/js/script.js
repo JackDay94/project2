@@ -21,6 +21,11 @@ let highScore = document.getElementById("high-score");
 let timer;
 let gameMode;
 
+let easyHighScore = localStorage.getItem("easyHighScore");
+let mediumHighScore = localStorage.getItem("mediumHighScore");
+let hardHighScore = localStorage.getItem("hardHighScore");
+let timeAttackHighScore = localStorage.getItem("timeAttackHighScore");
+
 /*
 Adds Event Listeners to the buttons when DOM
 content is loaded. Then runs the functions
@@ -29,7 +34,9 @@ operating the buttons when they are clicked
 document.addEventListener('DOMContentLoaded', function() {
     for (let btns of btnMain)
 
-        btns.addEventListener("click", function() {
+        btns.addEventListener("click", function(event) {
+            event.preventDefault();
+            checkScore();
             if (this.getAttribute('data-type') === 'game-mode-ta') {
                 loadTimeAttack();
             } else if (this.getAttribute('data-type') === 'game-mode-cd') {
@@ -69,7 +76,7 @@ function loadTimeAttack() {
     remainingTime.innerHTML = 0;
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
-    highScore.innerHTML = 0;
+    highScore.innerHTML = parseInt(timeAttackHighScore);
     // Focus on the text box when game loads
     userAnswer.focus();
     // Disables the answer box to prevent input before game starts
@@ -113,8 +120,7 @@ function mainMenu() {
     // Clears all game values
     remainingTime.innerHTML = null;
     randomWord.innerHTML = null;
-    userScore.innerHTML = null;
-    highScore.innerHTML = null;
+    userScore.innerHTML = 0;
     difficulty.innerHTML = null;
     gameMode = null;
 }
@@ -147,9 +153,8 @@ function loadCountdown() {
     generateWord();
     // Sets the starting time to 0 on load
     remainingTime.innerHTML = 0;
-    // Sets the score and high score to 0
+    // Sets the score to 0
     userScore.innerHTML = 0;
-    highScore.innerHTML = 0;
     // Focus on the text box when game loads
     userAnswer.focus();
     // Disables the answer box to prevent input before game starts
@@ -160,6 +165,48 @@ function loadCountdown() {
     userAnswer.addEventListener("input", nextWord);
     // Sets the value of the game mode
     gameMode = 'Countdown';
+}
+
+/**
+ * Loads the countdown game in easy difficulty
+ */
+function loadCountdownEasy() {
+    // Changes styles and html for easy
+    gameHeading.style.color = 'lightgreen';
+    difficulty.style.color = 'lightgreen';
+    difficulty.innerHTML = 'Easy';
+    // Stores the value of the start time 
+    gameStartTime = gameTimes.easy;
+    // Displays high score
+    highScore.innerHTML = parseInt(easyHighScore);
+}
+
+/**
+ * Loads the countdown game in medium difficulty
+ */
+function loadCountdownMedium() {
+    // Changes styles and html for medium
+    gameHeading.style.color = 'orange';
+    difficulty.style.color = 'orange';
+    difficulty.innerHTML = 'Medium';
+    // Stores the value of the start time 
+    gameStartTime = gameTimes.medium;
+    // Displays high score
+    highScore.innerHTML = parseInt(mediumHighScore);
+}
+
+/**
+ * Loads the countdown game in hard difficulty
+ */
+function loadCountdownHard() {
+    // Changes styles and html for hard
+    gameHeading.style.color = '#bb0721';
+    difficulty.style.color = '#bb0721';
+    difficulty.innerHTML = 'Hard';
+    // Stores the value of the start time
+    gameStartTime = gameTimes.hard;
+    // Displays high score
+    highScore.innerHTML = parseInt(hardHighScore);
 }
 
 /**
@@ -253,41 +300,44 @@ function increaseScore() {
     // Checks if user score is greater than high score and matches them
     if (parseInt(userScore.innerHTML) > parseInt(highScore.innerHTML)) {
         highScore.innerHTML = userScore.innerHTML;
+        if(gameStartTime = gameTimes.timeAttack) {
+            localStorage.setItem("timeAttackHighScore", highScore.innerHTML);
+        } else if (gameStartTime = gameTimes.easy) {
+            localStorage.setItem("easyHighScore", highScore.innerHTML);
+        } else if (gameStartTime = gameTimes.medium) {
+            localStorage.setItem("mediumHighScore", highScore.innerHTML);
+        } else if (gameStartTime = gameTimes.hard) {
+            localStorage.setItem("hardHighScore", highScore.innerHTML);
+        }
     }
 }
 
 /**
- * Loads the countdown game in easy difficulty
+ * Checks the high score local storage
  */
-function loadCountdownEasy() {
-    // Changes styles and html for easy
-    gameHeading.style.color = 'lightgreen';
-    difficulty.style.color = 'lightgreen';
-    difficulty.innerHTML = 'Easy';
-    // Stores the value of the start time 
-    gameStartTime = gameTimes.easy;
-}
-
-/**
- * Loads the countdown game in medium difficulty
- */
-function loadCountdownMedium() {
-    // Changes styles and html for medium
-    gameHeading.style.color = 'orange';
-    difficulty.style.color = 'orange';
-    difficulty.innerHTML = 'Medium';
-    // Stores the value of the start time 
-    gameStartTime = gameTimes.medium;
-}
-
-/**
- * Loads the countdown game in hard difficulty
- */
-function loadCountdownHard() {
-    // Changes styles and html for hard
-    gameHeading.style.color = '#bb0721';
-    difficulty.style.color = '#bb0721';
-    difficulty.innerHTML = 'Hard';
-    // Stores the value of the start time
-    gameStartTime = gameTimes.hard;
+function checkScore() {
+    if(timeAttackHighScore === null) {
+        highScore.innerHTML = 0;
+        localStorage.setItem("timeAttackHighScore", highScore.innerHTML);
+    } else {
+        highScore.innerHTML = parseInt(timeAttackHighScore);
+    }
+    if(easyHighScore === null) {
+        highScore.innerHTML = 0;
+        localStorage.setItem("easyHighScore", highScore.innerHTML);
+    } else {
+        highScore.innerHTML = parseInt(easyHighScore);
+    }
+    if(mediumHighScore === null) {
+        highScore.innerHTML = 0;
+        localStorage.setItem("mediumHighScore", highScore.innerHTML);
+    } else {
+        highScore.innerHTML = parseInt(mediumHighScore);
+    }
+    if(hardHighScore === null) {
+        highScore.innerHTML = 0;
+        localStorage.setItem("hardHighScore", highScore.innerHTML);
+    } else {
+        highScore.innerHTML = parseInt(hardHighScore);
+    }
 }
