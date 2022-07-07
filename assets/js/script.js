@@ -21,11 +21,6 @@ let highScore = document.getElementById("high-score");
 let timer;
 let gameMode;
 
-let easyHighScore = localStorage.getItem("easyHighScore");
-let mediumHighScore = localStorage.getItem("mediumHighScore");
-let hardHighScore = localStorage.getItem("hardHighScore");
-let timeAttackHighScore = localStorage.getItem("timeAttackHighScore");
-
 /*
 Adds Event Listeners to the buttons when DOM
 content is loaded. Then runs the functions
@@ -76,7 +71,7 @@ function loadTimeAttack() {
     remainingTime.innerHTML = 0;
     // Sets the score and high score to 0
     userScore.innerHTML = 0;
-    highScore.innerHTML = parseInt(timeAttackHighScore);
+    highScore.innerHTML = parseInt(localStorage.getItem("timeAttackHighScore"));
     // Focus on the text box when game loads
     userAnswer.focus();
     // Disables the answer box to prevent input before game starts
@@ -178,7 +173,7 @@ function loadCountdownEasy() {
     // Stores the value of the start time 
     gameStartTime = gameTimes.easy;
     // Displays high score
-    highScore.innerHTML = parseInt(easyHighScore);
+    highScore.innerHTML = parseInt(localStorage.getItem("easyHighScore"));
 }
 
 /**
@@ -192,7 +187,7 @@ function loadCountdownMedium() {
     // Stores the value of the start time 
     gameStartTime = gameTimes.medium;
     // Displays high score
-    highScore.innerHTML = parseInt(mediumHighScore);
+    highScore.innerHTML = parseInt(localStorage.getItem("mediumHighScore"));
 }
 
 /**
@@ -206,7 +201,7 @@ function loadCountdownHard() {
     // Stores the value of the start time
     gameStartTime = gameTimes.hard;
     // Displays high score
-    highScore.innerHTML = parseInt(hardHighScore);
+    highScore.innerHTML = parseInt(localStorage.getItem("hardHighScore"));
 }
 
 /**
@@ -300,13 +295,13 @@ function increaseScore() {
     // Checks if user score is greater than high score and matches them
     if (parseInt(userScore.innerHTML) > parseInt(highScore.innerHTML)) {
         highScore.innerHTML = userScore.innerHTML;
-        if(gameStartTime = gameTimes.timeAttack) {
+        if(gameStartTime === gameTimes.timeAttack) {
             localStorage.setItem("timeAttackHighScore", highScore.innerHTML);
-        } else if (gameStartTime = gameTimes.easy) {
+        } else if (gameStartTime === gameTimes.easy) {
             localStorage.setItem("easyHighScore", highScore.innerHTML);
-        } else if (gameStartTime = gameTimes.medium) {
+        } else if (gameStartTime === gameTimes.medium) {
             localStorage.setItem("mediumHighScore", highScore.innerHTML);
-        } else if (gameStartTime = gameTimes.hard) {
+        } else if (gameStartTime === gameTimes.hard) {
             localStorage.setItem("hardHighScore", highScore.innerHTML);
         }
     }
@@ -316,28 +311,28 @@ function increaseScore() {
  * Checks the high score local storage
  */
 function checkScore() {
-    if(timeAttackHighScore === null) {
+    if(localStorage.getItem("timeAttackHighScore") === null) {
         highScore.innerHTML = 0;
         localStorage.setItem("timeAttackHighScore", highScore.innerHTML);
     } else {
-        highScore.innerHTML = parseInt(timeAttackHighScore);
+        highScore.innerHTML = parseInt(localStorage.getItem("timeAttackHighScore"));
     }
-    if(easyHighScore === null) {
+    if(localStorage.getItem("easyHighScore") === null) {
         highScore.innerHTML = 0;
         localStorage.setItem("easyHighScore", highScore.innerHTML);
     } else {
-        highScore.innerHTML = parseInt(easyHighScore);
+        highScore.innerHTML = parseInt(localStorage.getItem("easyHighScore"));
     }
-    if(mediumHighScore === null) {
+    if(localStorage.getItem("mediumHighScore") === null) {
         highScore.innerHTML = 0;
         localStorage.setItem("mediumHighScore", highScore.innerHTML);
     } else {
-        highScore.innerHTML = parseInt(mediumHighScore);
+        highScore.innerHTML = parseInt(localStorage.getItem("mediumHighScore"));
     }
-    if(hardHighScore === null) {
+    if(localStorage.getItem("hardHighScore") === null) {
         highScore.innerHTML = 0;
         localStorage.setItem("hardHighScore", highScore.innerHTML);
     } else {
-        highScore.innerHTML = parseInt(hardHighScore);
+        highScore.innerHTML = parseInt(localStorage.getItem("hardHighScore"));
     }
 }
