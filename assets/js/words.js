@@ -1,3 +1,5 @@
+// Words for game
+
 const words = [
     'alphabet',
     'apple',
