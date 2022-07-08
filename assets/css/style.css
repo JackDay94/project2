@@ -40,11 +40,6 @@ p {
     font-size: clamp(12px, 2vw, 16px);
 }
 
-.logo {
-    text-decoration: none;
-    color: black;
-}
-
 .padding-top {
     padding-top: 20px;
 }
@@ -52,6 +47,13 @@ p {
 .padding-bottom {
     padding-bottom: 20px;
 }
+
+.logo {
+    text-decoration: none;
+    color: black;
+}
+
+/* Game area styles */
 
 .ta-blue {
     color: #5f9ea0;
@@ -224,7 +226,7 @@ p {
 }
 
 /* Media Queries */
-
+/* Screens 400px wide and smaller */
 @media screen and (max-width: 400px) {
     .padding-bottom {
         padding-bottom: 15px;
@@ -239,6 +241,7 @@ p {
     }
 }
 
+/* Screens 675px wide and smaller */
 @media screen and (max-width: 675px) {
     .btn-main {
         width: 40%;
@@ -260,6 +263,7 @@ p {
     }
 }
 
+/* Screens 1000px and smaller in landscape */
 @media screen and (orientation:landscape) 
     and (max-width: 1000px) {
         .btn-main {
