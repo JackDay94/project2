@@ -1,108 +1,111 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Speedy Typer</h1>
 
-Welcome JackDay94,
+## Introduction
+Speedy Typer is a Javascript based web game that allows users to test their typing skills through two unique game modes. This game is aimed at those who wish to test their typing skills and play a simple, fun game to try and challenge themselves to beat their high score. The game has 2 modes - 'Time Attack' and 'Countdown', to provide the user with a choice in how they wish to play.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[The live site can be accessed here.](https://jackday94.github.io/project2_speedy_typer/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Responsive check](assets/images/responsive-check.webp)
 
-## Gitpod Reminders
+## Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Design
 
-`python3 -m http.server`
+### Colours
+I tried to keep the colours simple for the site, with the main font colour set to white to contrast the darker background and make the main content stand out. I chose to distinguish the 2 game modes with different colours so that the user can easily identify which mode they are playing. Likewise, the different difficulties are represented by a traffic light style colour scheme to help the user identify the difficulty they are playing.
 
-A blue button should appear to click: _Make Public_,
+![Colour pallete](assets/images/colour-pallete.webp)
 
-Another blue button should appear to click: _Open Browser_.
+### Font Styles
+As the site is based around a typing game, I wanted the main font style to be clear and easily readable for the user. For this I used Google Fonts to choose the 'Lato' font style for the main game section content. I also wanted the main heading to seem playful to represent a game. I used Google Fonts and chose the 'Potta One' style for this.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Images
+Since the main purpose of the site is to play the typing game - I didn't want to overload the user with images, so I chose to only use a single image of a keyboard for the background of the site.
 
-A blue button should appear to click: _Make Public_,
+### Wireframes
+I created the wireframes for this project using Balsamiq Wireframes.
+<details>
+<summary>Desktop</summary>
 
-Another blue button should appear to click: _Open Browser_.
+![Desktop Wireframe](assets/images/desktop-wireframe.webp)
+</details>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<details>
+<summary>Mobile</summary>
 
-To log into the Heroku toolbelt CLI:
+![Mobile Wireframe](assets/images/mobile-wireframe.webp)
+</details>
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Features
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Existing Features
 
-------
+- __Main Menu__
+    - This is the first page the user is met with when they load the site.
+    - It provides information that tells the user how to play the game and what the different game modes are.
+    - There are two buttons that take the user to the different game modes. 'Time Attack' loads the time attack game mode, and 'Countdown' loads the difficulty select menu for the countdown game mode.
 
-## Release History
+![Main Menu](assets/images/main-menu.webp)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- __Difficulty Select__
+    - From this menu, the user can choose between the 3 difficulty options for the 'Countdown' game.
+    - 3 large navigation buttons load the countdown game at a difficulty of the user's choice - Easy, Medium or Hard.
+    - A home button at the bottom of the page takes user's back to the main menu when clicked.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Difficulty Select](assets/images/difficulty-select.webp)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- __Time Attack Game__
+    - This is the game that is displayed when the user selects the 'time attack' button from the main menu.
+    - The game features a start button that will set the timer to 60 seconds, display a random word, enable the text input box, disable the button and set the score to 0.
+    - When the timer starts, it will begin to countdown by 1 second for 60 seconds until it reaches 0.
+    - While the timer is active, the user must type the word that is displayed above the input box to score 1 point. Everytime the words match, the word above the input box is randomised from an array of words.
+    - The high score is set when the user's score is greater than the high score value that is stored in local storage.
+    - When the timer reaches 0, the input box is disabled and the start button is enabled again.
+    - A home button at the bottom of the page will take the user back to the main menu.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Time Attack](assets/images/time-attack.webp)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- __Countdown Game__
+    - This is the game that is displayed when the user selects 'countdown' from the main menu and chooses a difficulty.
+    - The basic features and functionality of this game are the same as the time attack game mode.
+    - Countdown starts the user with a limited amount of time depending on which difficulty they select. Easy starts with 8 seconds, Medium with 5, and Hard with 3.
+    - Each time the user matches their word to the random word, the current time on the timer is increased by 2 seconds.
+    - The timer will continue to countdown until it reaches 0, at which point the game ends. The user must therefore type as fast as possible to prevent the timer reaching 0.
+    - The game displays the difficulty the user is playing on just above their score.
+    - There are seperate high scores for each difficulty stored in local storage to prevent the user from overlapping their high score from a lower difficulty to a higher one.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Countdown](assets/images/countdown.webp)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Future Features
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- Game Sounds
+    - I feel that adding sounds to the game would be a good way to improve the user experience. For example, a chime sound could play when the user enters a correct answer which would give them audio feedback that they answered correctly. Also sounds could play when the timer is low to let the user know that they are running low on time.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Leaderboards
+    - I would like to add a leaderboard which keeps a record of high scores and allows the user to enter their name to display ther score in the leaderboard. This could make the game more attractive to competetive players who wish to aim for the highest spot on the leaderboard.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- Game start on typing
+    - I would like to make the game start when the user starts to type in the text box rather than using a start button. This would make starting the game more fluid as the user can just use their keyboard to start the game, rather than clicking on a button.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Technologies
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- HTML5 - Used for the structure and content of my web pages.
+- CSS3 - Used for the styling of pages.
+- JavaScript - Used to implement the interactive features of the site and create the main functionality of the game.
+- [Font Awesome](https://fontawesome.com/) - For the timer icon used in the games.
+- [Google fonts](https://fonts.google.com/) - Used to choose the fonts for my site.
+- [favicon.io](https://favicon.io/) - Used to create the favicon for the site.
+- [Gitpod](https://www.gitpod.io/) - Used as my code editor.
+- [GitHub](https://github.com/) - Used for deploying and hosting my site.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Testing
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Validator Testing
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- HTML
+    - No errors displayed when checking with the W3C markup validation service.
+    ![HTML validation](assets/images/html-validation.webp)
 
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+- CSS
+    - No errors displayed when checking with the W3C CSS validation service.
+    ![CSS validation](assets/images/css-validation.webp)
