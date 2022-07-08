@@ -56,7 +56,7 @@ p {
 /* Game area styles */
 
 .ta-color {
-    color: #94B9AF;
+    color: #294C49;
     font-weight: 700;
 }
 
@@ -124,14 +124,14 @@ p {
 }
 
 #btn-ta {
-    background-color: #94B9AF;
+    background-color: #294C49;
     color: #fff;
 }
 
 #btn-ta:hover {
     background-color: #fff;
-    color: #94B9AF;
-    border: 4px solid #94B9AF;
+    color: #294C49;
+    border: 4px solid #294C49;
 }
 
 #btn-cd {
