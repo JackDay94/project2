@@ -104,8 +104,64 @@ I created the wireframes for this project using Balsamiq Wireframes.
 
 - HTML
     - No errors displayed when checking with the W3C markup validation service.
-    ![HTML validation](assets/images/html-validation.webp)
+
+![HTML validation](assets/images/html-validation.webp)
 
 - CSS
     - No errors displayed when checking with the W3C CSS validation service.
-    ![CSS validation](assets/images/css-validation.webp)
+
+![CSS validation](assets/images/css-validation.webp)
+
+- Google Lighthouse
+    - Google lighthouse gave the site a score of 100 for all categories except performance, which was shown as 90 for mobile and 99 for desktop.
+
+![Lighthouse desktop](assets/images/lighthouse-check-desktop.webp)
+
+![Lighthouse mobile](assets/images/lighthouse-check-mobile.webp)
+
+- JSHint
+    - JSHint only displayed one warning about declaring functions in loops, but this is required in the project to enable the buttons to operate correctly.
+
+![JSHint validation](assets/images/jshint-validation.PNG)
+
+### Feature Testing
+
+- Buttons
+    - I tested that all buttons operate as they should, by repeatedly clicking them, refreshing the page and clicking again and trying on different devices. I tested that the 'start' button would disable until the user finishes the current game before it is enabled again.
+
+- Timer
+    - I tested the timer by running the game and checking its initial value was set. I then checked that it decremented every second and would stop at 0. I would run the game multiple times to check that it performed this function every time. I also used the menu button to return to the main menu and then checked the game again to see if the timer had stopped. I tested that the different game modes and difficulty displayed the correct starting time.
+
+- Score
+    - I tested that the score would increase whenever the user typed a word correctly. I made sure that everytime the user starts a new game, the score would set to 0. I checked that the score would set to 0 when the user left the game and that it would not break if they left before the game finished. I checked that the high score was being correctly set when the user score was higher than the value in local storage. I checked that the high score for each game mode was being set to the high score for the specific mode and difficulty in local storage. I checked that the high score would be set to 0 if no previous records of the high score were present.
+
+- Increase timer in countdown
+    - I tested that the timer increases by 2 seconds whenever the user score increases in countdown. I tested this for each difficulty.
+
+- Words randomise
+    - I tested that a new word is displayed randomly whenever the user plays the game. I tested that a correct match between the user input and random word would clear the user input box and randomise the word again. I tested that a new random word is displayed whenever the user loads the game or refreshes the page.
+
+### Responsiveness
+
+- To test my site for responsiveness on different screen sizes I used Mozilla Firefox and Google Chrome Dev tools to emulate different size viewports. The smallest viewport size that I tested my site on was 320x480.
+- I tested in both portrait and landscape modes to ensure that the site functioned as intended when in different view modes.
+- My personal device (Samsung Galaxy S20 Ultra 5G) was also used in both portrait and landscape modes to test the site.
+
+### Known Bugs
+
+- When clicking the start button on mobile devices the #btn-start:hover styles do not correctly get deselected when the button is disabled, causing them to be active until the user clicks somewhere else on the page.
+
+## Deployment
+
+I deployed my site to GitHub pages using the following steps:
+  1. Select Project1_Gym_Day from my GitHub dashboard, navigate to the Settings tab 
+  2. From the 'Code and automation' left menu, select pages
+  3. From the source section select the main branch in the drop down menu, select save
+  4. Once the main branch has been saved, the GitHub pages section will display a message saying that the site is ready to be published at https://jackday94.github.io/Project1_Gym_Day/
+  5. After waiting for a few minutes and refreshing the page, GitHub pages will now display a messaging saying 'Your site is published at https://jackday94.github.io/Project1_Gym_Day/'
+  6. The site is now deployed and can be viewed using the provided link
+
+### Local Deployment
+
+To deploy my project locally the following steps can be used:
+
