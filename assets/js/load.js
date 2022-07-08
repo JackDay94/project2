@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("difficulty").hidden = true;
     // Changes the heading to Time Attack
     gameHeading.textContent = "Time Attack";
-    gameHeading.style.color = "cadetblue";
+    gameHeading.style.color = "#94B9AF";
     // Generates a random word for the game
     generateWord();
     // Sets the initial time to 0 on load
