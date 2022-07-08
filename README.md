@@ -197,7 +197,7 @@ I created the wireframes for this project using Balsamiq Wireframes.
 ## Deployment
 
 I deployed my site to GitHub pages using the following steps:
-  1. Select Project1_Gym_Day from my GitHub dashboard, navigate to the Settings tab 
+  1. Select project2_speedy_typer from my GitHub dashboard, navigate to the Settings tab 
   2. From the 'Code and automation' left menu, select pages
   3. From the source section select the main branch in the drop down menu, select save
   4. Once the main branch has been saved, the GitHub pages section will display a message saying that the site is ready to be published at https://jackday94.github.io/project2_speedy_typer/
