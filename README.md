@@ -9,6 +9,49 @@ Speedy Typer is a Javascript based web game that allows users to test their typi
 
 ## Table of Contents
 
+1. [Site Goals](#site-goals)
+    - [User Stories](#user-stories)
+    - [Site Owner Goals](#site-owner-goals)
+2. [Design](#design)
+    - [Colours](#colours)
+    - [Font Styles](#font-styles)
+    - [Images](#images)
+    - [Wireframes](#wireframes)
+3. [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Future Features](#future-features)
+4. [Technologies](#technologies)
+5. [Testing](#testing)
+    - [Validator Testing](#validator-testing)
+    - [Feature Testing](#feature-testing)
+    - [Responsiveness](#responsiveness)
+    - [Known Bugs](#known-bugs)
+6. [Deployment](#deployment)
+    - [Local Deployment](#local-deployment)
+7. [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+
+## Site Goals
+
+### User Stories
+
+- As a new user, I want to be able to navigate through the site easily and quickly to find the game I want.
+- As a new user, I want the instructions on how to play the game to be clear and concise.
+- As a new user, I want the site to be responsive when played on smaller devices.
+- As a new user, I want the design of the site to be simple and appealing.
+- As a new user, I want to be able to type a variety of words to improve my typing skills.
+- As a returning user, I want to be able to see my previous high score for each game mode.
+- As a returning user, I want to be able to change the difficulty of the game to challenge myself.
+
+### Site Owner Goals
+
+- As a site owner, I want to create a simple fun game to help improve typing skills.
+- As a site owner, I want to be able to store user high scores for returning use.
+- As a site owner, I want to provide an easy to navigate game that works with different devices.
+- As a site owner, I want to give users an option between different game modes.
+- As a site owner, I want the design of my site to be appealing but not distracting from the main content. 
+
 ## Design
 
 ### Colours
@@ -157,11 +200,30 @@ I deployed my site to GitHub pages using the following steps:
   1. Select Project1_Gym_Day from my GitHub dashboard, navigate to the Settings tab 
   2. From the 'Code and automation' left menu, select pages
   3. From the source section select the main branch in the drop down menu, select save
-  4. Once the main branch has been saved, the GitHub pages section will display a message saying that the site is ready to be published at https://jackday94.github.io/Project1_Gym_Day/
-  5. After waiting for a few minutes and refreshing the page, GitHub pages will now display a messaging saying 'Your site is published at https://jackday94.github.io/Project1_Gym_Day/'
+  4. Once the main branch has been saved, the GitHub pages section will display a message saying that the site is ready to be published at https://jackday94.github.io/project2_speedy_typer/
+  5. After waiting for a few minutes and refreshing the page, GitHub pages will now display a messaging saying 'Your site is published at https://jackday94.github.io/project2_speedy_typer/'
   6. The site is now deployed and can be viewed using the provided link
 
 ### Local Deployment
 
 To deploy my project locally the following steps can be used:
+1. Navigate to my Github account and locate and select the 'project2_speedy_typer' repository 
+2. At the top of the repository, next to the green Gitpod button, select the 'code' button
+3. Download the ZIP file of the repository
+4. When the ZIP file has finished downloading, extract the contents to a relevant folder on your device
+5. The website can then be run locally on your device
 
+## Credits
+
+### Content
+
+- Instructions on handling the DOM content and event listeners were taken from [Code Institute course material](https://codeinstitute.net/)
+- The clock icon for the timer was obtained from [Font Awesome](https://fontawesome.com/)
+- Information for various elements in HTML, CSS and JS and how to use them were often taken from [W3Schools](https://www.w3schools.com/)
+- Information on how to store and get values from local storage were taken from [stackoverflow](https://stackoverflow.com/questions/29370017/adding-a-high-score-to-local-storage)
+- JavaScript tutorials and tricks on how to implement a game were obtained from useful guides on the youtube channel [Traversy Media](https://www.youtube.com/c/TraversyMedia)
+
+### Media
+- The background image of the site was taking from the free stock photo library [Pexels](https://www.pexels.com/)
+- The favicon for the site was generated using [favicon.io](https://favicon.io/)
+- To find colours that contrasted well with each other and give me the look for my site that I was after, I used [Coolors](https://coolors.co/)
