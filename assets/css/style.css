@@ -8,15 +8,16 @@
 body {
     font-family: 'Lato', sans-serif;
     text-align: center;
-    background: no-repeat linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(../images/speedy-typer-background.jpg) center;
+    background: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(../images/speedy-typer-background.jpg) center;
+    background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 h1 {
     font-family: 'Potta One', cursive;
     text-transform: uppercase;
-    margin: 20px 10%;
+    margin: 0 10%;
     letter-spacing: 2px;
     font-size: clamp(26px, 4vw, 46px);
     color: #fff;
@@ -66,7 +67,7 @@ p {
     width: min(900px, 90%);
     height: min(450px, 80vh);
     box-sizing: border-box;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     background: linear-gradient(rgb(28, 37, 65, 0.7), rgb(28, 37, 65, 0.7));
     color: #fff;
     padding: 30px;
@@ -232,6 +233,10 @@ p {
     .padding-top {
         padding-top: 15px;
     }
+
+    #btn-ta, #btn-cd {
+        display: inline;
+    }
 }
 
 @media screen and (max-width: 675px) {
@@ -254,3 +259,51 @@ p {
         padding: 10px;
     }
 }
+
+@media screen and (orientation:landscape) 
+    and (max-width: 1000px) {
+        .btn-main {
+            width: 20%;
+            max-width: 200px;
+            min-width: 100px;
+            margin: 0 auto 10px auto;
+            height: 50px;
+            position: relative;
+            display: block;
+            font-size: 12px;
+        }
+    
+        .btn-difficulty {
+            min-width: 70%;
+            height: 50px;
+        }
+    
+        #game-container {
+            padding: 10px;
+            min-height: 350px;
+        }
+
+        .padding-bottom {
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 14px;
+        }
+
+        #random-word {
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        #answer {
+            height: 20px;
+        }
+    }
